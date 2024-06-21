@@ -1,5 +1,9 @@
 # Template for TypeScript + FastAPI projects (client side)
 
+Recommended way to view website:
+``` 
+live-server --port=8088
+```
 
 <br/>  
 
