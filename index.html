@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typescript</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid white;
+            border-bottom-color: deepskyblue;
+            border-radius: 50%;
+            display: inline-block;
+            animation: rotation 1s linear infinite;
+        }
+        .imageCell {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border: 5px solid black;
+            width: 500px;
+            height: 500px;
+            margin: 5px;
+        }
+        .retryButton {
+            margin: auto;
+        }
+        .errorMessage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        @keyframes rotation {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+<div class="p-6 flex justify-center">
+    <div class="flex gap-6 items-start">
+        <form id="rectangle_form" class="bg-gray-800 p-4 rounded-lg grid grid-cols-2 gap-4 max-w-md w-full">
+            <label for="x1" class="block mb-2">x1</label>
+            <input type="number" id="x1" name="x1" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600">
+            <label for="y1" class="block mb-2">y1</label>
+            <input type="number" id="y1" name="y1" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600">
+            <label for="x2" class="block mb-2">x2</label>
+            <input type="number" id="x2" name="x2" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600">
+            <label for="y2" class="block mb-2">y2</label>
+            <input type="number" id="y2" name="y2" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600">
+            <label for="color" class="block mb-2 col-span-2">Color</label>
+            <input type="color" id="color" name="color" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600 col-span-2">
+            <button type="submit" class="col-span-2 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white">Dodaj</button>
+            <div class="col-span-2 flex items-center justify-start gap-3">
+                <button type="button" onclick="postImageOnServer()" class="inline-flex justify-center py-2 px-4 bg-green-600 hover:bg-green-700 rounded-lg text-white">Post on server</button>
+                <div id="tags-controller" class="flex gap-2">
+                    <button type="button" class="py-1 px-3 bg-gray-600 hover:bg-gray-700 rounded-lg">tag_name1</button>
+                    <button type="button" class="py-1 px-3 bg-gray-600 hover:bg-gray-700 rounded-lg">tag_name2</button>
+                </div>
+            </div>
+        </form>
+        <div id="image-container" class="imageCell bg-gray-800 text-white border-gray-700 p-4 rounded-lg"></div>
+    </div>
+</div>
+<div class="p-6">
+    <div id="gallery-container">
+        <!-- Gallery images will go here -->
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
